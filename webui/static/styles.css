@@ -1,0 +1,33 @@
+:root{
+  --bg:#ffffff; --fg:#111418; --muted:#6b7280; --accent:#2563eb; --panel:#f3f4f6; --ok:#16a34a; --warn:#f59e0b; --err:#dc2626;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:var(--bg);color:var(--fg)}
+.container{max-width:840px;margin:0 auto;padding:28px}
+h1,h2,h3{margin:12px 0 16px}
+h1 .title-icon{height:44px;width:44px;margin-right:10px;vertical-align:middle}
+form{background:var(--panel);padding:16px;border-radius:10px}
+label{display:block;margin-bottom:8px}
+/* Text inputs and textarea fill width; exclude checkboxes */
+textarea, input:not([type=checkbox]), select{width:100%;padding:10px;border-radius:8px;border:1px solid #d1d5db;background:#ffffff;color:var(--fg)}
+/* Horizontal rows for options */
+.row{display:flex;gap:16px;align-items:center;margin:10px 0;flex-wrap:wrap}
+/* Make checkbox labels inline and aligned */
+.row label{display:inline-flex;align-items:center;gap:8px;margin:0 18px 0 0}
+input[type=checkbox]{width:auto;height:auto}
+/* In rows that mix label + input (e.g., format), let the input grow */
+.row input:not([type=checkbox]){flex:1}
+/* Progress bar */
+.progressbox{background:#ffffff;border:1px solid #d1d5db;border-radius:8px;height:16px;overflow:hidden;margin:8px 0}
+.progressbox .bar{background:linear-gradient(90deg,var(--accent),#7cc8ff);height:100%;width:0%;transition:width .2s ease}
+.muted{color:var(--muted);font-size:0.92em;margin:4px 0 0}
+button{background:var(--accent);color:#0b0f14;border:none;border-radius:8px;padding:10px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+button:hover{filter:brightness(1.05)}
+#start-btn{display:block;margin:18px auto 6px;width:96px;height:96px;border-radius:50%;padding:0;font-size:0;justify-content:center;align-items:center}
+#start-btn .btn-icon{height:64px;width:64px;display:inline-block}
+#task{background:var(--panel);padding:16px;border-radius:10px;margin-top:18px}
+.hidden{display:none}
+pre{background:#ffffff;border:1px solid #e5e7eb;padding:12px;border-radius:8px;white-space:pre-wrap;word-wrap:break-word;max-height:260px;overflow:auto}
+ul{list-style:disc;padding-left:20px}
+footer{margin-top:20px;color:var(--muted)}

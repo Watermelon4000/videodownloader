@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>edio downloader</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" type="image/png" href="/static/img/favicon.png">
+  </head>
+  <body>
+    <div class="container">
+      <h1><img src="/static/img/title.png" alt="" class="title-icon">edio downloader</h1>
+      <form id="download-form">
+        <label for="url">视频链接（可多行）：</label>
+        <textarea id="url" name="url" rows="4" placeholder="在此粘贴链接，每行一个"></textarea>
+
+        <div class="row">
+          <label for="format_preset">格式选择：</label>
+          <select id="format_preset" name="format_preset">
+            <option value="">自动（与 yt-dlp 默认一致）</option>
+            <option value="bestvideo*+bestaudio/best">自适应最高画质</option>
+            <option value="bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]" selected>最高画质（MP4 优先）</option>
+            <option value="bv*[height<=1080]+ba/b[height<=1080]">1080p 优先</option>
+            <option value="bv*[height<=720]+ba/b[height<=720]">720p 优先</option>
+            <option value="bv*[height<=480]+ba/b[height<=480]">480p 优先</option>
+            <option value="__custom__">自定义表达式…</option>
+          </select>
+        </div>
+        <div class="row" id="custom_format_row" style="display:none">
+          <label for="format">自定义格式：</label>
+          <input id="format" name="format" placeholder="例如：bestvideo*+bestaudio/best">
+        </div>
+
+        <div class="row">
+          <label><input type="checkbox" id="subtitles"> 下载字幕</label>
+          <label><input type="checkbox" id="embed_thumbnail"> 嵌入缩略图</label>
+          <label><input type="checkbox" id="mp4_only"> 仅下载 MP4（不含 WebM）</label>
+          <label><input type="checkbox" id="audio_only"> 仅提取音频（MP3）</label>
+        </div>
+
+        <button type="submit" id="start-btn" aria-label="开始下载" title="开始下载">
+          <img src="/static/img/手掌 Background Removed.png" alt="" class="btn-icon" onerror="this.onerror=null;this.src='/static/img/click.png'" />
+        </button>
+      </form>
+
+      <div id="task" class="hidden">
+        <h2>任务状态</h2>
+        <div>任务 ID：<span id="task-id"></span></div>
+        <div>状态：<span id="task-status"></span></div>
+        <div class="progressbox" aria-label="下载进度">
+          <div class="bar" id="progress-bar" style="width:0%"></div>
+        </div>
+        <div id="progress-label" class="muted"></div>
+        <h3>已完成文件</h3>
+        <div class="muted" style="margin:6px 0 4px 0;">下载目录（最近）</div>
+        <ul id="dir-files"></ul>
+        <div style="margin: 8px 0;">
+          <button type="button" id="open-dir-btn">在本机打开下载文件夹</button>
+        </div>
+        <ul id="files"></ul>
+        <h3>日志（最近200条）</h3>
+        <pre id="log"></pre>
+      </div>
+
+      <footer>
+        <small>下载目录：项目根目录下的 webui_downloads/</small>
+      </footer>
+    </div>
+
+    <script src="/static/main.js"></script>
+  </body>
+  </html>
