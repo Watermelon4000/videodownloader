@@ -1,6 +1,8 @@
 <div align="center">
 
-<h1>Edio Downloader — 可爱的本地视频下载 WebApp</h1>
+<img src="webui/static/img/favicon.png" alt="Edio Downloader" width="128" />
+
+<h1>Vedio Downloader — 可爱的本地视频下载 WebApp</h1>
 
 一个轻巧的本地 Web 界面，基于 yt‑dlp，支持快速粘贴链接下载、提取音频、字幕，以及在本机文件夹中打开下载目录。适合“点开即用、下载即走”的可爱风格桌面体验。
 
@@ -66,4 +68,3 @@
 
 致谢
 - 本项目基于开源项目 [yt‑dlp](https://github.com/yt-dlp/yt-dlp)。若需完整 CLI 功能，请参考其文档与许可证（本仓库随附上游 LICENSE）。
-
